@@ -1,0 +1,13 @@
+= form_tag 'upload_products', multipart: true, method: :post
+  .modal.fade#upload_file tabindex="-1" role="dialog"
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header Upload file
+        .modal-body
+          .row
+            .col-md-12
+                .form-group
+                  = file_field_tag 'file_to_upload', class: 'form-control'
+        .modal-footer
+          button.btn.custom-btn type="submit" Save
+          button.btn.btn-default data-dismiss="modal" Cancel

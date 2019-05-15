@@ -231,6 +231,13 @@ GEM
       tilt (>= 1.1, < 3)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
+    slim (3.0.9)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (3.1.3)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (~> 3.0)
     spree (3.4.1)
       spree_api (= 3.4.1)
       spree_backend (= 3.4.1)
@@ -307,6 +314,7 @@ GEM
       activerecord (>= 4.1, < 5.2)
       state_machines-activemodel (>= 0.5.0)
     stringex (2.7.1)
+    temple (0.8.1)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -338,6 +346,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.7)
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
@@ -346,6 +355,8 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
+  slim (~> 3.0.7)
+  slim-rails (~> 3.1.1)
   spree (~> 3.4.0)
   spree_auth_devise (~> 3.3)
   spree_gateway (~> 3.3)
@@ -354,4 +365,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.17.3

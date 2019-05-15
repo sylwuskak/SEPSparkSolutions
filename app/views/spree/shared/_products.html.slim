@@ -1,0 +1,29 @@
+- content_for :head do
+  - if products.respond_to?(:total_pages)
+    = rel_next_prev_link_tags products
+
+button.btn.btn-lg.custom-btn-lighter data-toggle="modal" data-target="#upload_file" type="button"
+  span.glyphicon.glyphicon-cloud-upload
+  |  Upload file
+
+div data-hook="products_search_results_heading" 
+  - if products.empty?
+    div data-hook="products_search_results_heading_no_results_found" 
+      = Spree.t(:no_products_found)
+  - elsif params.key?(:keywords)
+    = render partial: 'spree/shared/trackers/segment/products_searched.js',
+      formats: :js,
+      locals: { query: params[:keywords] }
+    div data-hook="products_search_results_heading_results_found" 
+      h6.search-results-title= Spree.t(:search_results, keywords: h(params[:keywords]))
+= render partial: 'spree/shared/trackers/segment/product_list_viewed.js',
+  formats: :js,
+  locals: { taxon: @taxon, products: products } 
+- if products.any?
+  #products.row data-hook="" 
+    = render partial: 'spree/products/product', collection: products, locals: { taxon: @taxon }
+- if products.respond_to?(:total_pages)
+  = paginate products, theme: 'twitter-bootstrap-3'
+
+
+= render "upload_file"
